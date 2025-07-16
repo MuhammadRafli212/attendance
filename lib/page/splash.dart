@@ -67,11 +67,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(
-                'assets/images/jamm.png', // Ganti sesuai path logo kamu
-                width: 300,
-                height: 300,
-              ),
+              Image.asset('assets/images/logo.png', width: 300, height: 300),
               const SizedBox(height: 24),
               const Text(
                 'Daily Attendance',

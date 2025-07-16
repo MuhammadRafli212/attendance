@@ -29,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Datum> attendanceList = [];
   late Timer timer;
   String currentTime = DateFormat('HH:mm:ss').format(DateTime.now());
+  String currentDate = DateFormat('EEEE, dd MMM yyyy').format(DateTime.now());
   String greeting = "Welcome";
   bool isLoggedIn = false;
 
@@ -39,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
     timer = Timer.periodic(const Duration(seconds: 1), (_) {
       setState(() {
         currentTime = DateFormat('HH:mm:ss').format(DateTime.now());
+        currentDate = DateFormat('EEEE, dd MMM yyyy').format(DateTime.now());
         greeting = _getGreeting();
       });
     });
@@ -149,29 +151,43 @@ class _HomeScreenState extends State<HomeScreen> {
         child: RefreshIndicator(
           onRefresh: initApp,
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             child: Column(
               children: [
                 const SizedBox(height: kToolbarHeight + 10),
-                ListTile(
-                  title: Text(
-                    userProfile?.name ?? 'Nama Pengguna',
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  subtitle: Text(
-                    isLoggedIn ? 'Attended' : 'Silakan login terlebih dahulu',
-                    style: TextStyle(
-                      color: isLoggedIn ? Colors.white70 : Colors.redAccent,
-                      fontStyle: FontStyle.italic,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: ListTile(
+                        title: Text(
+                          userProfile?.name ?? 'Nama Pengguna',
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        subtitle: Text(
+                          isLoggedIn
+                              ? 'Attended'
+                              : 'Silakan login terlebih dahulu',
+                          style: TextStyle(
+                            color:
+                                isLoggedIn ? Colors.white70 : Colors.redAccent,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.grey,
+                          backgroundImage:
+                              userProfile?.profilePhotoUrl != null
+                                  ? NetworkImage(userProfile!.profilePhotoUrl!)
+                                  : null,
+                        ),
+                      ),
                     ),
-                  ),
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.grey,
-                    backgroundImage:
-                        userProfile?.profilePhotoUrl != null
-                            ? NetworkImage(userProfile!.profilePhotoUrl!)
-                            : null,
-                  ),
+                    Text(
+                      currentDate,
+                      style: const TextStyle(color: Colors.white70),
+                    ),
+                  ],
                 ),
                 if (isLoggedIn) ...[
                   const SizedBox(height: 12),
@@ -261,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Column(
                               children: [
                                 const Text(
-                                  "Check In",
+                                  "Check out",
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 const SizedBox(height: 4),
@@ -368,6 +384,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         }).toList(),
+                  ),
+                  const SizedBox(height: 100),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Opacity(
+                      opacity: 1,
+                      child: Text(
+                        '© 2025 Sokin App - All rights reserved.',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
                   ),
                 ],
               ],

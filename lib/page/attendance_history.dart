@@ -44,6 +44,30 @@ class _AttendanceHistoryPageState extends State<AttendanceHistoryPage> {
     }
   }
 
+  void _confirmDelete(int id) {
+    showDialog(
+      context: context,
+      builder:
+          (_) => AlertDialog(
+            title: const Text("Hapus Absen"),
+            content: const Text("Yakin ingin menghapus absen ini?"),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Batal"),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  deleteHistory(id);
+                },
+                child: const Text("Hapus", style: TextStyle(color: Colors.red)),
+              ),
+            ],
+          ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +93,12 @@ class _AttendanceHistoryPageState extends State<AttendanceHistoryPage> {
             isLoading
                 ? const Center(child: CircularProgressIndicator())
                 : historyList.isEmpty
-                ? const Center(child: Text('Belum ada data kehadiran'))
+                ? const Center(
+                  child: Text(
+                    'Belum ada data kehadiran',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )
                 : ListView.builder(
                   padding: const EdgeInsets.all(16),
                   itemCount: historyList.length,
@@ -121,6 +150,13 @@ class _AttendanceHistoryPageState extends State<AttendanceHistoryPage> {
                                 Text(d.checkOutTime ?? '-'),
                               ],
                             ),
+                          ),
+                          IconButton(
+                            icon: const Icon(
+                              Icons.delete_outline,
+                              color: Colors.redAccent,
+                            ),
+                            onPressed: () => _confirmDelete(d.id),
                           ),
                         ],
                       ),

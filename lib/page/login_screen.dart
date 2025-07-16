@@ -18,7 +18,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   bool isPasswordHidden = true;
   late AnimationController _fadeController;
   late Animation<double> _fadeAnimation;
-  bool isLoading = false;
 
   @override
   void initState() {
@@ -50,6 +49,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
       email: email,
       password: password,
     );
+
     if (loginResponse != null) {
       final token = loginResponse.data.token;
       await PreferencesHelper.saveToken(token);
@@ -90,13 +90,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                       child: Column(
                         children: [
                           const SizedBox(height: 5),
-
                           Image.asset(
-                            'assets/images/jamm.png',
+                            'assets/images/logo.png',
                             width: 225,
                             height: 225,
                           ),
-
                           const SizedBox(height: 10),
                           const Text(
                             'Attendance App',
@@ -187,28 +185,35 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => const RegisterPage()),
-                    );
-                  },
-                  child: const Text.rich(
-                    TextSpan(
-                      text: 'Belum punya akun? ',
-                      style: TextStyle(color: Colors.white),
-                      children: [
-                        TextSpan(
-                          text: 'Register',
-                          style: TextStyle(color: Colors.greenAccent),
-                        ),
-                      ],
+              Column(
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const RegisterPage()),
+                      );
+                    },
+                    child: const Text.rich(
+                      TextSpan(
+                        text: 'Belum punya akun? ',
+                        style: TextStyle(color: Colors.white),
+                        children: [
+                          TextSpan(
+                            text: 'Register',
+                            style: TextStyle(color: Colors.greenAccent),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    '© 2025 Sokin App - All rights reserved.',
+                    style: TextStyle(color: Colors.white70, fontSize: 12),
+                  ),
+                  const SizedBox(height: 12),
+                ],
               ),
             ],
           ),

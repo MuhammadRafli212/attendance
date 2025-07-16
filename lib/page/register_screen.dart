@@ -143,7 +143,7 @@ class _RegisterPageState extends State<RegisterPage>
                       child: Column(
                         children: [
                           const Text(
-                            'Register Account',
+                            'Register account',
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           const SizedBox(height: 24),
@@ -210,6 +210,14 @@ class _RegisterPageState extends State<RegisterPage>
                                 color: Colors.white,
                                 fontSize: 16,
                               ),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          const Text(
+                            '© 2025 Attendance App - All rights reserved.',
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 12,
                             ),
                           ),
                         ],
