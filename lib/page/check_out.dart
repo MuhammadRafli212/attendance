@@ -135,7 +135,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                     child: ElevatedButton(
                       onPressed: isLoading ? null : _checkOut,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
+                        backgroundColor: Color(0xffE9B0DF),
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),
                       child:

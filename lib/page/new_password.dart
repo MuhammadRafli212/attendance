@@ -97,7 +97,7 @@ class _NewPasswordPageState extends State<NewPasswordPage> {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0xFFA2D5C6), Color(0xFF000000)],
+              colors: [Color(0xFFA2D5C6), Color(0xFFE9B0DF)],
             ),
           ),
           child: SafeArea(

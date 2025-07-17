@@ -134,19 +134,19 @@ class _CheckInPageState extends State<CheckInPage> {
                     child: ElevatedButton(
                       onPressed: isLoading ? null : _checkIn,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
+                        backgroundColor: Color(0xFFA2D5C6),
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),
                       child:
                           isLoading
                               ? const CircularProgressIndicator(
-                                color: Colors.white,
+                                color: Colors.black,
                               )
                               : const Text(
                                 "Check In Sekarang",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 ),
                               ),
                     ),

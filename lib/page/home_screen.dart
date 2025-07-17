@@ -137,13 +137,13 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(greeting),
         backgroundColor: Colors.transparent,
-        foregroundColor: Colors.white,
+        foregroundColor: Colors.black,
         elevation: 0,
       ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xffA2D5C6), Color(0xFF000000)],
+            colors: [Color(0xffA2D5C6), Color(0xFFE9B0DF)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -162,7 +162,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ListTile(
                         title: Text(
                           userProfile?.name ?? 'Nama Pengguna',
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         subtitle: Text(
                           isLoggedIn
@@ -170,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               : 'Silakan login terlebih dahulu',
                           style: TextStyle(
                             color:
-                                isLoggedIn ? Colors.white70 : Colors.redAccent,
+                                isLoggedIn ? Colors.black38 : Colors.redAccent,
                             fontStyle: FontStyle.italic,
                           ),
                         ),
@@ -185,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Text(
                       currentDate,
-                      style: const TextStyle(color: Colors.white70),
+                      style: const TextStyle(color: Colors.black38),
                     ),
                   ],
                 ),
@@ -317,7 +321,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         "Attendance History (7 Days)",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                       TextButton(
@@ -332,7 +336,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: const Text(
                           "Details",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -402,7 +406,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(color: Colors.black),
+      bottomNavigationBar: BottomAppBar(color: Color(0xffE9B0DF)),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFFA2D5C6),
         onPressed: () {

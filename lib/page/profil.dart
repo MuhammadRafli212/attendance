@@ -48,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFA2D5C6), Color(0xFF000000)],
+            colors: [Color(0xFFA2D5C6), Color(0xFFE9B0DF)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -67,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                         const SizedBox(height: 16),
@@ -85,14 +85,14 @@ class _ProfilePageState extends State<ProfilePage> {
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                         Text(
                           user?.email ?? "",
                           style: const TextStyle(
                             fontSize: 14,
-                            color: Colors.white70,
+                            color: Colors.black38,
                           ),
                         ),
                         const SizedBox(height: 24),
@@ -149,7 +149,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.black,
+        color: Color(0xffE9B0DF),
         shape: const CircularNotchedRectangle(),
         child: SizedBox(
           height: 50,

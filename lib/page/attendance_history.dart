@@ -72,19 +72,19 @@ class _AttendanceHistoryPageState extends State<AttendanceHistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Color(0xffA2D5C6),
         title: const Text(
           'Riwayat Kehadiran',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black),
         ),
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Container(
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFA2D5C6), Color(0xFF000000)],
+            colors: [Color(0xFFA2D5C6), Color(0xFFE9B0DF)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -96,7 +96,7 @@ class _AttendanceHistoryPageState extends State<AttendanceHistoryPage> {
                 ? const Center(
                   child: Text(
                     'Belum ada data kehadiran',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.black, fontSize: 18),
                   ),
                 )
                 : ListView.builder(

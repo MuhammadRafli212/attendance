@@ -79,7 +79,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFA2D5C6), Color(0xFF000000)],
+            colors: [Color(0xFFA2D5C6), Color(0xFFE9B0DF)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

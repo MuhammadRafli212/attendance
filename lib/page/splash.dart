@@ -60,7 +60,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFA2D5C6),
       body: FadeTransition(
         opacity: _animation,
         child: Center(

@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFA2D5C6), Color(0xFF1F1E1E)],
+            colors: [Color(0xFFA2D5C6), Color(0xFFE9B0DF)],
           ),
         ),
         child: SafeArea(
